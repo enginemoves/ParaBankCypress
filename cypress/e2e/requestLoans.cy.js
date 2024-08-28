@@ -1,30 +1,25 @@
-var driver
-var user
-describe('Request Loan Spec', () => {
-  before(()=>{
-    Cypress.on("uncaught:exception",()=>{
-      return false
-    })
-    cy.fixture("requestLoansElements").then((sel)=>{
-      driver = sel
-    })
-    cy.fixture("userCredentials").then((sel)=>{
-        user = sel
-    })
+import { RequestLoanPage } from "../support/page_objects/requestLoanPage";
 
-  })
-  it('Log in User', () => {
-    cy.wait(2000)
-    cy.login(user.username,user.password)
-  })
-  it('Request Loan', () => {
-    cy.contains("Request Loan").click()
-    cy.get(driver.loanAmountField).type(driver.amount)
-    cy.get(driver.downPaymentField).type(driver.downPaymentAmount)
-    cy.get(driver.applyNowButton).click()
-    cy.contains("Loan Request Processed").should("be.visible")
-    cy.log("user requested loan succesfully, now procceeding to sign out user")
-    cy.logOut()
-  })
-  
-})
+describe('Request Loan Spec', () => {
+  let driver;
+  let requestLoanPage;
+
+  before(() => {
+    
+    cy.fixture("requestLoansElements").then((sel) => {
+      driver = sel;
+      requestLoanPage = new RequestLoanPage(driver);
+    });
+    cy.login(); 
+
+  });
+
+  it('User can request a loan successfully', () => {
+    requestLoanPage.navigateToRequestLoan();
+    requestLoanPage.fillOutLoanForm(driver.amount, driver.downPaymentAmount);
+    requestLoanPage.submitLoanRequest();
+    requestLoanPage.verifyLoanRequestSuccess();
+    cy.log("User requested loan successfully, now proceeding to sign out user");
+    requestLoanPage.logOutUser();
+  });
+});

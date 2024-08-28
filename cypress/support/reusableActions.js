@@ -1,13 +1,13 @@
-Cypress.Commands.add('login', (email, password) => {
-   
-    cy.fixture("loginElements").then((driver)=>{
-        cy.get(driver.usernameField).clear().type(email)
-        cy.get(driver.passwordField).clear().type(password)
-        cy.get(driver.loginButton).click()
-        cy.contains("Accounts Overview").should("be.visible")
-
-    })
-})
+Cypress.Commands.add('login', () => {
+    cy.fixture("userCredentials").then((user) => {
+        cy.fixture("loginElements").then((driver) => {
+            cy.get(driver.usernameField).clear().type(user.username);
+            cy.get(driver.passwordField).clear().type(user.password);
+            cy.get(driver.loginButton).click();
+            cy.contains("Accounts Overview").should("be.visible");
+        });
+    });
+});
 
 Cypress.Commands.add('logOut', () => {
    
