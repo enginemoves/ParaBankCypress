@@ -1,0 +1,21 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run allSpec && npm run allure:report",
+    "removeReport":"rm -rf allure-report && rm -rf allure-results",
+    "allSpec": "npm run removeReport && npx cypress run --browser=chrome --headed --spec cypress/e2e/AllSpecInOne/allSpecInOneTest.cy.js --reporter mocha-allure-reporter",
+    "allure:report": "allure generate allure-results --clean -o allure-report && allure open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.14.0",
+    "@shelex/cypress-allure-plugin": "^2.21.0",
+    "allure-commandline": "^2.13.8",
+    "mocha-allure-reporter":"^1.4.0"
+  }
+}

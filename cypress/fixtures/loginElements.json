@@ -1,0 +1,5 @@
+{
+    "usernameField":":nth-child(2) > .input",
+    "passwordField":":nth-child(4) > .input",
+    "loginButton":":nth-child(5) > .button"
+}

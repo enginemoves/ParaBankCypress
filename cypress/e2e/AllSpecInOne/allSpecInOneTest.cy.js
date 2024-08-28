@@ -1,0 +1,5 @@
+import "../register.cy"
+import "../login.cy"
+import "../requestLoans.cy"
+import "../transferFunds.cy"
+import "../logOut.cy"

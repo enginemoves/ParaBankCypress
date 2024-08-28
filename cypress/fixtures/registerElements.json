@@ -1,0 +1,14 @@
+{
+    "firstnameField": "#customer\\.firstName",
+    "lastnameField": "#customer\\.lastName",
+    "addressField": "#customer\\.address\\.street",
+    "cityField": "#customer\\.address\\.city",
+    "stateField": "#customer\\.address\\.state",
+    "zipCodeField": "#customer\\.address\\.zipCode",
+    "phoneNumberField": "#customer\\.phoneNumber",
+    "SSNField": "#customer\\.ssn",
+    "usernameField": "#customer\\.username",
+    "passwordField": "#customer\\.password",
+    "confirmPasswordField": "#repeatedPassword",
+    "submitRegistrationButton":"[colspan='2'] > .button"
+}

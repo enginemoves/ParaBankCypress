@@ -1,0 +1,8 @@
+{
+   "loanAmountField":"#amount" ,
+   "amount":"660",
+   "downPaymentField":"#downPayment",
+   "downPaymentAmount":"40",
+   "accountDropDown":"#fromAccountId",
+   "applyNowButton":"[colspan='2'] > .button"
+}

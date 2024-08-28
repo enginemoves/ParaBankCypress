@@ -1,0 +1,6 @@
+{
+    "amountField":"#amount",
+    "fromAccountDropdown":"#fromAccountId",
+    "recipientAccountDropdown":"#toAccountId",
+    "transferButton":":nth-child(4) > .button"
+}
