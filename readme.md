@@ -30,6 +30,9 @@ The project uses native Cypress fixtures to implement the Page Object Model (POM
 A dedicated test data file (`testData.js`) is created in the `fixtures` folder to store randomly generated data such as first names, last names, usernames, and email addresses. This data is imported and used in the `register.cy.js` spec file to ensure unique data for each test run.
 
 **Note:** After creating users for a while, it was noticed that users would be deleted, rendering the credentials invalid. To address this, a function was added to the script that stores the newly created user credentials inside the `userCredentials.json` file in the fixture folder. This ensures that user login credentials are always valid and updated. For feature-based tests, it is recommended to run the `register` spec first. However, if you are running all specs, you need not worry, as the `register` spec will run first and update the user credentials.
+The transferFunds select bank is also not a static value hence it was commented out and i used default values on the field to initiate transfer in the script
+
+Allure Report folders were not added to the repo push because of its size but you can find a test report screenshot in the screenshot folder 
 
 ## All-in-One Spec File
 
